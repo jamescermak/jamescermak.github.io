@@ -1,1 +1,0 @@
-# jamescermak.github.io
