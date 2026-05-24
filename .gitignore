@@ -1,0 +1,9 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# BMad planning tooling (not part of the deployable portfolio site)
+.claude/
+_bmad/
+_bmad-output/
