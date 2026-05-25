@@ -1,1 +1,426 @@
 /* Portfolio styles — James Cermak */
+
+/* ==========================================
+   DESIGN TOKENS
+   ========================================== */
+
+:root {
+  /* Colors */
+  --color-bg: #000;
+  --color-text-primary: #f2f2f2;
+  --color-text-muted: #888;
+  --color-accent: #c8a96e;
+
+  /* Typography */
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --size-base: 16px;
+
+  /* Spacing */
+  --space-section: 5rem;
+  --space-content: 2rem;
+}
+
+/* ==========================================
+   FONT FACE
+   ========================================== */
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('assets/fonts/cinzel-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================
+   BASE RESET
+   ========================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================
+   BODY
+   ========================================== */
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--size-base);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   STICKY HEADER
+   ========================================== */
+
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem var(--space-content);
+  background-color: var(--color-bg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  .sticky-header__name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-primary);
+  }
+
+  .sticky-header__contact {
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    color: var(--color-text-primary);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* ==========================================
+   SECTIONS
+   ========================================== */
+
+.section {
+  padding: var(--space-section) var(--space-content);
+}
+
+.section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   TYPOGRAPHY
+   ========================================== */
+
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: var(--space-content);
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+
+.section-hero {
+  background-color: var(--color-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+
+  .section__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero__subtitle {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  min-height: 44px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn-primary {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid currentColor;
+}
+
+/* ==========================================
+   LINKS
+   ========================================== */
+
+a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+/* ==========================================
+   SHARED SECTION UTILITIES
+   ========================================== */
+
+.section__blurb {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.tech-logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.tech-logo {
+  height: 2rem;
+  width: auto;
+}
+
+/* ==========================================
+   FLUID SOLVER SECTION
+   ========================================== */
+
+.section-fluid-solver {
+  .section__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-content);
+    align-items: center;
+  }
+
+  .section__media {
+    video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+    }
+  }
+
+  .section__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-content);
+  }
+}
+
+/* ==========================================
+   SHADER ANIMATION SECTION
+   ========================================== */
+
+.section-shader-animation {
+  .section__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-content);
+    align-items: center;
+  }
+
+  .section__media {
+    video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+    }
+  }
+
+  .section__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-content);
+  }
+}
+
+/* ==========================================
+   MODELING SHOWCASE SECTION
+   ========================================== */
+
+.section-modeling {
+  .section__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-content);
+  }
+
+  .modeling-slideshow {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .modeling-slideshow__media {
+    img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .modeling-slideshow__technique {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    margin-top: var(--space-content);
+    margin-bottom: 1rem;
+  }
+
+  .modeling-slideshow__info {
+    padding-bottom: var(--space-content);
+  }
+
+  .modeling-slideshow__controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: var(--space-content);
+  }
+}
+
+/* ==========================================
+   ANIMATION REEL SECTION
+   ========================================== */
+
+.section-animation-reel {
+  .section__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-content);
+    align-items: center;
+  }
+
+  .section__media {
+    video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+    }
+  }
+
+  .section__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-content);
+  }
+}
+
+/* ==========================================
+   ABOUT SECTION
+   ========================================== */
+
+.section-about {
+  .section__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-content);
+    align-items: center;
+  }
+
+  .section__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-content);
+  }
+
+  .section__media {
+    img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+footer {
+  padding: var(--space-content);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+/* ==========================================
+   RESPONSIVE — TABLET (768px–1023px)
+   ========================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --space-section: 3.5rem;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE — MOBILE (< 768px)
+   ========================================== */
+
+@media (max-width: 767px) {
+  :root {
+    --space-section: 2.5rem;
+  }
+
+  .section-fluid-solver .section__inner,
+  .section-shader-animation .section__inner,
+  .section-animation-reel .section__inner,
+  .section-about .section__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .section-shader-animation .section__media,
+  .section-about .section__media {
+    order: -1;
+  }
+
+  .sticky-header__contact {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

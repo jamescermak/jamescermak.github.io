@@ -4,9 +4,119 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>James Cermak — Technical Artist</title>
+  <meta name="description" content="James Cermak is a Technical Artist who builds pipeline tools and creates studio-quality shader, animation, and modeling work.">
+  <link rel="preload" href="assets/fonts/cinzel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <header id="sticky-header" class="sticky-header">
+    <span class="sticky-header__name">James Cermak</span>
+    <a class="sticky-header__contact" href="mailto:jamescermak1@gmail.com">Contact</a>
+  </header>
+
+  <main>
+
+    <section id="hero" class="section section-hero">
+      <div class="section__inner">
+        <h1>James Cermak</h1>
+        <p class="hero__subtitle">Technical Artist</p>
+        <a class="btn btn-primary" href="mailto:jamescermak1@gmail.com">Get in Touch</a>
+      </div>
+    </section>
+
+    <section id="fluid-solver" class="section section-fluid-solver">
+      <div class="section__inner">
+        <div class="section__media">
+          <video autoplay muted loop playsinline aria-label="Real-time fluid simulation rendered in Blender viewport using the Fluid Solver VFX add-on">
+            <source src="assets/videos/fluid-solver-demo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="section__text">
+          <h2>Fluid Solver VFX Add-on</h2>
+          <p class="section__blurb">A Blender Python add-on implementing a real-time fluid solver for VFX production. Designed for fast, iterative fluid simulations without leaving the DCC.</p>
+          <div class="tech-logo-row">
+            <img src="assets/icons/logo-blender.svg" alt="Blender" class="tech-logo">
+            <img src="assets/icons/logo-python.svg" alt="Python" class="tech-logo">
+          </div>
+          <a href="https://github.com/jamescermak/jamescermak.github.io" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="shader-animation" class="section section-shader-animation">
+      <div class="section__inner">
+        <div class="section__text">
+          <h2>Shader Animation</h2>
+          <p class="section__blurb">A real-time shader demonstrating procedural animation and material techniques, developed for VFX production workflows.</p>
+          <div class="tech-logo-row">
+            <img src="assets/icons/logo-blender.svg" alt="Blender" class="tech-logo">
+          </div>
+          <a href="https://github.com/jamescermak" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+        <div class="section__media">
+          <video class="js-lazy-video" autoplay muted loop playsinline aria-label="Real-time shader animation demonstrating procedural material and timing effects in Blender's viewport">
+            <source data-src="assets/videos/shader-animation.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section id="modeling" class="section section-modeling">
+      <div class="section__inner">
+        <h2>Modeling Showcase</h2>
+        <div class="modeling-slideshow js-slideshow-modeling">
+          <div class="modeling-slideshow__media">
+            <img class="modeling-slideshow__image js-modeling-image" src="" alt="">
+          </div>
+          <div class="modeling-slideshow__info">
+            <p class="modeling-slideshow__technique js-modeling-technique"></p>
+            <p class="section__blurb js-modeling-blurb"></p>
+          </div>
+          <div class="modeling-slideshow__controls">
+            <button class="btn btn-secondary js-modeling-prev" aria-label="Previous modeling slide">&larr;</button>
+            <button class="btn btn-secondary js-modeling-next" aria-label="Next modeling slide">&rarr;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="animation-reel" class="section section-animation-reel">
+      <div class="section__inner">
+        <div class="section__media">
+          <video class="js-lazy-video js-slideshow-reel" autoplay muted playsinline aria-label="Animation reel — ending sequence">
+            <source data-src="assets/videos/reel-01.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="section__text">
+          <h2>Animation Reel</h2>
+          <p class="section__blurb">Character, VFX, and technical animation work demonstrating range and craft across multiple productions.</p>
+          <div class="tech-logo-row">
+            <img src="assets/icons/logo-blender.svg" alt="Blender" class="tech-logo">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-about">
+      <div class="section__inner">
+        <div class="section__text">
+          <h2>About</h2>
+          <p class="section__blurb">James Cermak is a Technical Artist specializing in pipeline tools, VFX simulations, and real-time shaders. He bridges the gap between art and engineering, building Blender add-ons and shader systems that accelerate production for animation and VFX teams.</p>
+          <a class="btn btn-primary" href="mailto:jamescermak1@gmail.com">Get in Touch</a>
+        </div>
+        <div class="section__media">
+          <img src="assets/images/about-photo.jpg" alt="James Cermak, Technical Artist">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 James Cermak</p>
+  </footer>
+
   <script src="main.js" defer></script>
 </body>
 </html>
