@@ -60,8 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const imgEl = modelingContainer.querySelector('.js-modeling-image');
     const techniqueEl = modelingContainer.querySelector('.js-modeling-technique');
     const blurbEl = modelingContainer.querySelector('.js-modeling-blurb');
-    const prevBtn = modelingContainer.querySelector('.js-modeling-prev');
-    const nextBtn = modelingContainer.querySelector('.js-modeling-next');
     const thumbsEl = modelingContainer.querySelector('.js-modeling-thumbs');
 
     let currentIndex = 0;
@@ -92,15 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(0);
     modelingContainer.classList.add('is-active');
 
-    prevBtn.addEventListener('click', () => {
-      clearInterval(autoAdvance);
-      showSlide((currentIndex - 1 + modelingSlides.length) % modelingSlides.length);
-    });
-
-    nextBtn.addEventListener('click', () => {
-      clearInterval(autoAdvance);
-      showSlide((currentIndex + 1) % modelingSlides.length);
-    });
   }
 
   const reelVideos = [

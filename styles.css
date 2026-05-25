@@ -356,12 +356,6 @@ a {
     }
   }
 
-  .modeling-slideshow__controls {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: var(--space-content);
-  }
 }
 
 /* ==========================================
