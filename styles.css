@@ -161,6 +161,19 @@ h2 {
    BUTTONS
    ========================================== */
 
+.contact-email {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
 .btn {
   display: inline-block;
   padding: 0.75rem 2rem;
@@ -216,9 +229,16 @@ a {
   align-items: center;
 }
 
-.tech-logo {
-  height: 2rem;
-  width: auto;
+.tech-tag {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  opacity: 0.7;
 }
 
 /* ==========================================
@@ -311,6 +331,29 @@ a {
 
   .modeling-slideshow__info {
     padding-bottom: var(--space-content);
+  }
+
+  .modeling-slideshow__thumbs {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+
+    img {
+      width: calc((100% - 1rem) / 3);
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      cursor: pointer;
+      opacity: 0.4;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &.is-active {
+        opacity: 1;
+      }
+    }
   }
 
   .modeling-slideshow__controls {

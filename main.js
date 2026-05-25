@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       src: 'assets/images/modeling-character.jpg',
       alt: 'Character model with clean quad topology for rigging',
-      technique: 'Character Modeling',
-      blurb: 'Quad-dominant topology engineered for smooth deformation, with edge flow following anatomical muscle lines.'
+      technique: 'Character Sculpting',
+      blurb: 'Sculpted character head with anatomy-driven topology, built for clean subdivision and deformation across facial poses.'
     }
   ];
 
@@ -62,8 +62,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const blurbEl = modelingContainer.querySelector('.js-modeling-blurb');
     const prevBtn = modelingContainer.querySelector('.js-modeling-prev');
     const nextBtn = modelingContainer.querySelector('.js-modeling-next');
+    const thumbsEl = modelingContainer.querySelector('.js-modeling-thumbs');
 
     let currentIndex = 0;
+    let autoAdvance = setInterval(() => showSlide((currentIndex + 1) % modelingSlides.length), SLIDESHOW_INTERVAL_MS);
+
+    const thumbImgs = modelingSlides.map((slide, i) => {
+      const thumb = document.createElement('img');
+      thumb.src = slide.src;
+      thumb.alt = slide.technique;
+      thumb.addEventListener('click', () => {
+        clearInterval(autoAdvance);
+        showSlide(i);
+      });
+      thumbsEl.appendChild(thumb);
+      return thumb;
+    });
 
     function showSlide(index) {
       const slide = modelingSlides[index];
@@ -72,28 +86,27 @@ document.addEventListener('DOMContentLoaded', () => {
       techniqueEl.textContent = slide.technique;
       blurbEl.textContent = slide.blurb;
       currentIndex = index;
+      thumbImgs.forEach((t, i) => t.classList.toggle('is-active', i === index));
     }
 
     showSlide(0);
     modelingContainer.classList.add('is-active');
 
-    setInterval(() => {
-      showSlide((currentIndex + 1) % modelingSlides.length);
-    }, SLIDESHOW_INTERVAL_MS);
-
     prevBtn.addEventListener('click', () => {
+      clearInterval(autoAdvance);
       showSlide((currentIndex - 1 + modelingSlides.length) % modelingSlides.length);
     });
 
     nextBtn.addEventListener('click', () => {
+      clearInterval(autoAdvance);
       showSlide((currentIndex + 1) % modelingSlides.length);
     });
   }
 
   const reelVideos = [
-    { src: 'assets/videos/reel-01.mp4', label: 'Animation reel — ending sequence' },
-    { src: 'assets/videos/reel-02.mp4', label: 'Animation reel — red scene' },
-    { src: 'assets/videos/reel-03.mp4', label: 'Animation reel — tar effect' }
+    { src: 'assets/videos/reel-01.mp4', label: 'Geometric music visualizer — opening sequence' },
+    { src: 'assets/videos/reel-02.mp4', label: 'Geometric music visualizer — red scene' },
+    { src: 'assets/videos/reel-03.mp4', label: 'Geometric music visualizer — closing sequence' }
   ];
 
   const reelVideo = document.querySelector('.js-slideshow-reel');
