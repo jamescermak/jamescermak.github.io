@@ -106,7 +106,18 @@
       <div class="section__inner">
         <div class="section__text">
           <h2>About</h2>
-          <p class="section__blurb">James Cermak is a Technical Artist specializing in pipeline tools, VFX simulations, and real-time shaders. He bridges the gap between art and engineering, building Blender add-ons and shader systems that accelerate production for animation and VFX teams.</p>
+          <p class="section__blurb">Thanks for making it this far. Before I got into 3D art and programming I started my first business at eighteen-years-old and learned to go all in on things that excite me. Outside of that, I've been playing drums since I was nine, and am teaching myself how to sing and play guitar. I love cooking Greek food, reading fiction (currently re-reading A Song of Ice and Fire), and staying active and outdoors. I'm also obsessed with modern metal and produce my own songs. Have a listen below!</p>
+          <div class="audio-player js-audio-player">
+            <button class="audio-player__btn js-audio-play" aria-label="Play">
+              <svg class="icon-play" width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true"><path d="M0 0 L12 7 L0 14 Z"/></svg>
+              <svg class="icon-pause" width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="4" height="14" rx="1"/><rect x="8" y="0" width="4" height="14" rx="1"/></svg>
+            </button>
+            <div class="audio-player__scrubber">
+              <input type="range" class="audio-player__progress js-audio-progress" min="0" max="100" value="0" step="0.1" aria-label="Audio progress">
+            </div>
+            <span class="audio-player__time js-audio-time">0:00</span>
+            <audio class="js-audio" src="assets/audio/track.wav" preload="metadata"></audio>
+          </div>
           <div class="btn-group">
             <a class="btn btn-primary" href="mailto:jamescermak1@gmail.com">Get in Touch</a>
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/james-cermak-732489354" target="_blank" rel="noopener noreferrer">LinkedIn</a>

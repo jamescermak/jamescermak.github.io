@@ -113,4 +113,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
     reelVideo.addEventListener('ended', advanceReel);
   }
+
+  const audioPlayer = document.querySelector('.js-audio-player');
+  if (audioPlayer) {
+    const audio = audioPlayer.querySelector('.js-audio');
+    const playBtn = audioPlayer.querySelector('.js-audio-play');
+    const progressInput = audioPlayer.querySelector('.js-audio-progress');
+    const timeDisplay = audioPlayer.querySelector('.js-audio-time');
+
+    function formatTime(s) {
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return `${m}:${sec.toString().padStart(2, '0')}`;
+    }
+
+    function setFill(pct) {
+      progressInput.style.setProperty('--fill', pct + '%');
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        audioPlayer.classList.add('is-playing');
+        playBtn.setAttribute('aria-label', 'Pause');
+      } else {
+        audio.pause();
+        audioPlayer.classList.remove('is-playing');
+        playBtn.setAttribute('aria-label', 'Play');
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (!audio.duration) return;
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressInput.value = pct;
+      setFill(pct);
+      timeDisplay.textContent = formatTime(audio.currentTime);
+    });
+
+    progressInput.addEventListener('input', () => {
+      const pct = parseFloat(progressInput.value);
+      if (audio.duration) audio.currentTime = (pct / 100) * audio.duration;
+      setFill(pct);
+    });
+
+    audio.addEventListener('ended', () => {
+      audioPlayer.classList.remove('is-playing');
+      playBtn.setAttribute('aria-label', 'Play');
+      progressInput.value = 0;
+      setFill(0);
+      timeDisplay.textContent = '0:00';
+    });
+  }
 });
