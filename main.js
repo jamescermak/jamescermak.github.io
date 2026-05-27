@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (source) {
         source.src = source.dataset.src;
         video.load();
-        video.play();
+        video.addEventListener('canplay', () => { video.play().catch(() => {}); }, { once: true });
       }
       observer.unobserve(video);
     });
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       reelSource.src = reelVideos[reelIndex].src;
       reelVideo.setAttribute('aria-label', reelVideos[reelIndex].label);
       reelVideo.load();
-      reelVideo.play();
+      reelVideo.addEventListener('canplay', () => { reelVideo.play().catch(() => {}); }, { once: true });
     }
 
     reelVideo.addEventListener('ended', advanceReel);
