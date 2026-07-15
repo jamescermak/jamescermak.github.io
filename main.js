@@ -39,19 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
       src: 'assets/images/modeling-hard-surface.jpg',
       alt: 'Hard-surface mechanical model showcasing precise polygon topology',
       technique: 'Hard-Surface Modeling',
-      blurb: 'Precision polygon modeling with clean edge loops, designed for deformation and subdivision readiness.'
+      blurb: 'Hard-surface model with clean topology and edge loops.'
     },
     {
       src: 'assets/images/modeling-low-poly.jpg',
       alt: 'Low-poly stylized environment model with optimized geometry',
       technique: 'Low-Poly Stylized',
-      blurb: 'Stylized low-poly modeling optimized for real-time rendering, balancing silhouette quality with minimal polygon count.'
+      blurb: 'Optimized (< 3,000 tris) game-ready low poly model. Asset used as main character in https://echomachine.itch.io/swordcurse-always-has-been. Lead 3D Artist.'
     },
     {
       src: 'assets/images/modeling-character.jpg',
       alt: 'Character model with clean quad topology for rigging',
       technique: 'Character Sculpting',
-      blurb: 'Sculpted character head with anatomy-driven topology, built for clean subdivision and deformation across facial poses.'
+      blurb: 'Anatomy study and sculpting in Blender.'
     }
   ];
 
